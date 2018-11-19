@@ -40,4 +40,35 @@ sysinfo.txt
 *.apk
 *.unitypackage
 
+# FMOD Generated Files
+/FMOD/*
+/Assets/StreamingAssets/*
+/Assets/StreamingAssets.meta
+/Assets/FMODStudioCache.asset
+/Assets/FMODStudioCache.asset.meta
+/Assets/FMODStudioCache.meta
+fmod_editor.log
+fmod.log
+/FMOD/fmod_editor.log
+/FMOD/fmod.log
+*/FMODStudioSettings.asset
+*/FMOD/.cache/*
+*.log
+
+# REMOVE NEED FOR FMOD CACHE, UNSAVED AND USER FILES
+/FMOD/.cache/*
+/FMOD/.unsaved/*
+/FMOD/.user/*
+
+# ADDED MANUALLY FOR CONVENIENCE
+FMOD/Assets/Resources/FMODStudioSettings.asset
+FMOD/Assets/FMODStudioCache.asset.meta
+FMOD/Assets/FMODStudioCache.asset
+FMOD/Assets/Resources/FMODStudioSettings.asset.meta
+
+
 # End of https://www.gitignore.io/api/unity
+
+
+
+

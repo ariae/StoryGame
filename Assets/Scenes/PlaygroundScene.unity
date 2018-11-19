@@ -158,6 +158,7 @@ GameObject:
   - component: {fileID: 163316803}
   - component: {fileID: 163316802}
   - component: {fileID: 163316801}
+  - component: {fileID: 163316808}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -179,8 +180,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHealth: 100
   currentHealth: 0
-  healthSlider: {fileID: 0}
-  damageImage: {fileID: 0}
+  healthSlider: {fileID: 1893079290}
+  damageImage: {fileID: 1482299045}
   deathClip: {fileID: 8300000, guid: d36a393bca4582043982db9089e1694f, type: 3}
   flashSpeed: 5
   flashColour: {r: 1, g: 0, b: 0, a: 0.15686275}
@@ -359,6 +360,28 @@ Transform:
   m_Father: {fileID: 1300091879}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &163316808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 163316800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: event:/Characters/Player/Weapons/Player_Assault_rifle
+  PlayEvent: 0
+  StopEvent: 0
+  CollisionTag: 
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
 --- !u!1 &170076733
 GameObject:
   m_ObjectHideFlags: 0
@@ -5921,6 +5944,12 @@ Transform:
   m_Father: {fileID: 745000731}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1482299045 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114631790490911080, guid: dfb2468b5b34d6047804782d0871db40,
+    type: 2}
+  m_PrefabInternal: {fileID: 1961310421}
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!4 &1504002645 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4960067746646438, guid: e19f02d86f1d05242962bd074ce0ce1e,
@@ -6226,6 +6255,12 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &1893079290 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114728159921188706, guid: dfb2468b5b34d6047804782d0871db40,
+    type: 2}
+  m_PrefabInternal: {fileID: 1961310421}
+  m_Script: {fileID: -113659843, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!4 &1896584800 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4610037961252824, guid: e48935289beb25f4da0a99f030ef71ea,
