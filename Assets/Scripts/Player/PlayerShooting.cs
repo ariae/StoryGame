@@ -16,14 +16,14 @@ public class PlayerShooting : MonoBehaviour
     AudioSource gunAudio;
     Light gunLight;
     float effectsDisplayTime = 0.2f;
-    int enemyShootableMask;
-    int wallShootableMask; //!!!!!Need to fix raycast collission with walls
+    int rayEnemy;                                                                           //rayEnemy = Layer mask that hits Enemies and deals damage
+    int rayObject;                                                                          //rayObject = Layer mask that breaks Line of gunLine (But don't register player direction raycast) NEED A TAG FOR BREAKABLE OBJECTS HERE
 
     void Awake ()
     {
         //Debug.Log("PlayerShooting 1 : void Awake starts");
-        enemyShootableMask = LayerMask.GetMask ("Enemy");
-        wallShootableMask = LayerMask.GetMask("RayWall"); //!!!!!Need to fix raycast collission with walls
+        rayEnemy = LayerMask.GetMask ("Enemy");
+        rayObject = LayerMask.GetMask("RayObject");                                         //!!!!!Need to fix raycast collission with walls
         gunParticles = GetComponent<ParticleSystem> ();
         gunLine = GetComponent <LineRenderer> ();
         gunAudio = GetComponent<AudioSource> ();
@@ -61,7 +61,7 @@ public class PlayerShooting : MonoBehaviour
 
     void Shoot ()
     {
-        //Debug.Log("PlayerShooting 2 : void Shoot starts");
+                                                                                        //Debug.Log("PlayerShooting 2 : void Shoot starts");
         timer = 0f;
 
             gunAudio.Play();
@@ -76,7 +76,7 @@ public class PlayerShooting : MonoBehaviour
 
             if (Physics.Raycast(shootRay, out shootHit, range))
             {
-                if (Physics.Raycast(shootRay, out shootHit, range, enemyShootableMask))
+                if (Physics.Raycast(shootRay, out shootHit, range, rayEnemy))
                 {
 
                 EnemyHealth enemyHealth = shootHit.collider.GetComponent<EnemyHealth>();
@@ -86,10 +86,10 @@ public class PlayerShooting : MonoBehaviour
                         enemyHealth.TakeDamage(damagePerShot, shootHit.point);
                     }
                     gunLine.SetPosition(1, shootHit.point);
-                //Debug.Log("PlayerShooting 3 : Enemy is hit.");
+                Debug.Log("PlayerShooting 3 : Enemy is hit.");
             }
 
-            if (Physics.Raycast(shootRay, out shootHit, range, wallShootableMask))
+            if (Physics.Raycast(shootRay, out shootHit, range, rayObject))
             {
                 ObjectHealth objectHealth = shootHit.collider.GetComponent<ObjectHealth>();
 
@@ -98,7 +98,7 @@ public class PlayerShooting : MonoBehaviour
                     objectHealth.TakeDamage(damagePerShot, shootHit.point);
                 }
                 gunLine.SetPosition(1, shootHit.point);
-                //Debug.Log("PlayerShooting 4 : Wall/Object is hit.");
+                Debug.Log("PlayerShooting 4 : Wall/Object is hit.");
             }
         }
             else
