@@ -18,7 +18,7 @@ public class PlayerHealth : MonoBehaviour
     Animator anim;
     AudioSource playerAudio;
     PlayerMovement playerMovement; //1. Type(name of the script) 2. variable name
-    PlayerShooting playerShooting; //1. Type(name of the script) 2. variable name
+    GunRifle1 gunRifle1; //1. Type(name of the script) 2. variable name
     bool isDead;
     bool damaged;
 
@@ -28,7 +28,7 @@ public class PlayerHealth : MonoBehaviour
         anim = GetComponent <Animator> ();
         playerAudio = GetComponent <AudioSource> ();
         playerMovement = GetComponent <PlayerMovement> ();
-        playerShooting = GetComponentInChildren <PlayerShooting> (); //Component on children (gunbarrel end)
+        gunRifle1 = GetComponentInChildren <GunRifle1> (); //Component on children (gunbarrel end)
         currentHealth = startingHealth;
     }
 
@@ -65,14 +65,14 @@ public class PlayerHealth : MonoBehaviour
     {
         isDead = true; //Player is dead
 
-        playerShooting.DisableEffects ();
+        gunRifle1.DisableEffects ();
 
         anim.SetTrigger ("Die"); //Triggers death animation
         playerAudio.clip = deathClip; // Sets death sound file "deathClip" in Unity UI
         playerAudio.Play (); //Oneshot Death audio clip
 
         playerMovement.enabled = false; //Stops external "playerMovement" script
-        playerShooting.enabled = false;
+        gunRifle1.enabled = false;
     }
 
 
